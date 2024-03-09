@@ -18,16 +18,15 @@ for i in range(n - 2):
             # 각 자리의 수의 합이 10이 넘지 않는지 검사 
             max_num = max(arr[i], arr[j], arr[k])
             max_len = len(str(max_num))
-            # sum_val = arr[i] + arr[j] + arr[k]
             flag = True
             sum_val = 0
             for l in range(1, max_len + 1):
-                if l < len(str(arr[i])):
-                    sum_val += int(str(arr[i])[l])
-                if l < len(str(arr[j])):
-                    sum_val += int(str(arr[j])[l])
-                if l < len(str(arr[k])):
-                    sum_val += int(str(arr[k])[l])
+                if l <= len(str(arr[i])):
+                    sum_val += int(str(arr[i])[l - 1])
+                if l <= len(str(arr[j])):
+                    sum_val += int(str(arr[j])[l - 1])
+                if l <= len(str(arr[k])):
+                    sum_val += int(str(arr[k])[l - 1])
                 if sum_val >= 10:
                     flag = False
                     break
