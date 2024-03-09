@@ -33,4 +33,8 @@ for i in range(n - 2):
                     break
             if (flag):
                 max_sum = max(max_sum, arr[i] + arr[j] + arr[k])
-print(max_sum)
+
+if (max_sum == -sys.maxsize):
+    print(-1)
+else:
+    print(max_sum)
