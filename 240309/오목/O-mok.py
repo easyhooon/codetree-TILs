@@ -46,6 +46,6 @@ for i in range(4, 19):
             print(1)
             print(i - 1, j + 3)
 
-        if arr[i][j] == 2 and arr[i - 1][j + 1] == 2 and arr[i - 2][j + 2] == 2 and arr[i - 3][j - 3] == 2 and arr[i - 4][j + 4] == 2:
+        if arr[i][j] == 2 and arr[i - 1][j + 1] == 2 and arr[i - 2][j + 2] == 2 and arr[i - 3][j + 3] == 2 and arr[i - 4][j + 4] == 2:
             print(2)
             print(i - 1, j + 3)
