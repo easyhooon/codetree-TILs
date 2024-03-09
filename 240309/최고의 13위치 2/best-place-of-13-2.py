@@ -16,9 +16,10 @@ for i in range(n):
     for j in range(n - 2):
         for k in range(n):
             for l in range(n - 2):  
-                if i == k and (j == l or j + 1 == l or j + 2 == l): 
+                if (i == k and (j == l or j + 1 == l or j + 2 == l)) or (i == k and j > l) : 
                     continue
                 sum_val = arr[i][j] + arr[i][j + 1] + arr[i][j + 2] + arr[k][l] + arr[k][l + 1] + arr[k][l + 2]
-                max_sum = max(max_sum, sum_val)
+                if (sum_val > max_sum):
+                    max_sum = sum_val
 
 print(max_sum)
