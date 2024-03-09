@@ -21,12 +21,13 @@ for i in range(n - 2):
             flag = True
             for l in range(1, max_len + 1):
                 sum_val = 0
+                # 1의 자리부터 비교해야 함
                 if l <= len(str(arr[i])):
-                    sum_val += int(str(arr[i])[l - 1])
+                    sum_val += int(str(arr[i])[len(str(arr[i])) - l])
                 if l <= len(str(arr[j])):
-                    sum_val += int(str(arr[j])[l - 1])
+                    sum_val += int(str(arr[j])[len(str(arr[j])) - l])
                 if l <= len(str(arr[k])):
-                    sum_val += int(str(arr[k])[l - 1])
+                    sum_val += int(str(arr[k])[len(str(arr[k])) - l])
                 if sum_val >= 10:
                     flag = False
                     break
