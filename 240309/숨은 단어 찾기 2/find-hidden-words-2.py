@@ -39,7 +39,6 @@ for i in range(2, n):
     for j in range(m - 2):
         if arr[i][j] == 'L' and arr[i - 1][j + 1] == 'E' and arr[i - 2][j + 2] == 'E':
             cnt += 1
-            print(i, j)
 
 # 대각선 우하향
 for i in range(n - 2):
