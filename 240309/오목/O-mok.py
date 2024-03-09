@@ -60,5 +60,5 @@ for i in range(4, 19):
             print(i - 1, j + 3)
             result = True
 
-if (!result):
+if not result:
     print(0)
