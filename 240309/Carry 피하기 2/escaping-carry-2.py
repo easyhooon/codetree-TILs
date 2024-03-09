@@ -19,8 +19,8 @@ for i in range(n - 2):
             max_num = max(arr[i], arr[j], arr[k])
             max_len = len(str(max_num))
             flag = True
-            sum_val = 0
             for l in range(1, max_len + 1):
+                sum_val = 0
                 if l <= len(str(arr[i])):
                     sum_val += int(str(arr[i])[l - 1])
                 if l <= len(str(arr[j])):
