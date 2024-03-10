@@ -20,4 +20,8 @@ arr = [0] * (max_coord + 1)
 for coord, alphabet in temp:
     arr[coord] = alphabet
 
-print(arr)
+# 투포인터 풀듯이 풀어보자
+# 근데 어디서 만나는지 그런게 중요한게 아닌데,,
+start = 0
+end = max_coord
+while start <= end:
