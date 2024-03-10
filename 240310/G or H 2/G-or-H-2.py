@@ -20,8 +20,6 @@ arr = [0] * (max_coord + 1)
 for coord, alphabet in temp:
     arr[coord] = alphabet
 
-# 투포인터 풀듯이 풀어보자
-# 근데 어디서 만나는지 그런게 중요한게 아닌데,,
 max_len = 0
 for i in range(max_coord + 1):
     for j in range(i + 1, max_coord + 1):
