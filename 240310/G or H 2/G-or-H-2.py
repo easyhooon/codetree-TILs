@@ -37,7 +37,7 @@ for i in range(max_coord + 1):
             if arr[k] == 2:
                 cnt_h += 1
 
-        if cnt_g == 0 or cnt_h == 0 or cnt_g == cnt_h:
+        if cnt_g == cnt_h:
             len_val = j - i
             max_len = max(max_len, len_val)
 
