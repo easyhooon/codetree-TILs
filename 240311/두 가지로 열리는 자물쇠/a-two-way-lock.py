@@ -4,19 +4,20 @@ si = sys.stdin.readline
 
 n = int(si())
 
-a_arr = list(map(int, si().split()))
-b_arr = list(map(int, si().split()))
+a, b, c = map(int, si().split())
+a2, b2, c2 = map(int, si().split())
 
+cnt = 0
+for i in range(1, n + 1):
+    for j in range(1, n + 1):
+        for k in range(1, n + 1):
+            # if ~ else 로 카운트 하기 때문에 겹치는것 고려하지 않아도 됨 
+            if (abs(a - i) <= 2 or abs(a - i) >= n - 2) and (abs(b - j) <= 2 or abs(b - j) >= n - 2) and \
+               (abs(c - k) <= 2 or abs(c - k) >= n - 2):
+                cnt += 1
+			
+            elif (abs(a2 - i) <= 2 or abs(a2 - i) >= n - 2) and (abs(b2 - j) <= 2 or abs(b2 - j) >= n - 2) and \
+               (abs(c2 - k) <= 2 or abs(c2 - k) >= n - 2):
+                cnt += 1
 
-if a_arr == b_arr:
-    print(1)
-else:
-    cnt = 0
-    for i in range(1, n - 2):
-        for j in range(i + 1, n - 1):
-            for k in range(j + 1, n):
-                if ((abs(i - a_arr[0]) <= 2 or abs(i - a_arr[0]) <= n - 2) and (abs(j - a_arr[1]) <= 2 or abs(j - a_arr[1]) <= n - 2) and (abs(k - a_arr[2]) <= 2 or abs(k - a_arr[2]) <= n - 2)) or ((abs(i - b_arr[0]) <= 2 or abs(i - b_arr[0]) <= n - 2) and (abs(j - b_arr[1]) <= 2 or abs(j - b_arr[1]) <= n - 2) and (abs(k - b_arr[2]) <= 2 or abs(k - b_arr[2]) <= n - 2)):
-                    # print(i, j, k)
-                    cnt += 1
-
-    print(250 - cnt)
+print(cnt)
