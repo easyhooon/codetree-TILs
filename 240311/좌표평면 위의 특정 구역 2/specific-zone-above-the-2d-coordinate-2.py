@@ -8,12 +8,12 @@ for _ in range(n):
     x, y = map(int, si().split())
     arr.append((x, y))
 
+min_area = sys.maxsize
 for i in range(n):
     max_x = 0
     min_x = sys.maxsize
     max_y = 0
     min_y = sys.maxsize
-    min_area = sys.maxsize
     for j in range(n):
         if i == j:
             continue
