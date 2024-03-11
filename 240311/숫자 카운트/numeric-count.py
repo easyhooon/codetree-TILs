@@ -45,8 +45,8 @@ for i in range(1, 10):
         for k in range(1, 10):
             if i == j or j == k or k == i:
                 continue
-            
-            successed = True
+
+            flag = True
             for a, num_cnt1, num_cnt2 in arr:
                 x = a // 100
                 y = a // 10 % 10
@@ -75,10 +75,11 @@ for i in range(1, 10):
                 
                 # 카운트 수가 다르면 해당 숫자는 정답이 될 수 없음 
                 if cnt1 != num_cnt1 or cnt2 != num_cnt2:
-                    successed = False
+                    flag = False
                     break
 
-            if successed:
+            if flag:
+                # print(i * 100 + j * 10 + k)
                 cnt += 1
 
 print(cnt)
