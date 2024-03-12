@@ -27,6 +27,9 @@ for i in range(n - 2):
             y_set.add(arr[j][1])
             y_set.add(arr[k][1])
             if len(x_set) == 2 and len(y_set) == 2:
-                max_area = max(max_area, arr[i][0] * arr[j][1] + arr[j][0] * arr[k][1] + arr[k][0] * arr[i][1] - arr[j][0] * arr[i][1] - arr[k][0] * arr[j][1] - arr[i][0] * arr[k][1])
+                max_area = max(max_area, abs(arr[i][0] * arr[j][1] + arr[j][0] * arr[k][1] + arr[k][0] * arr[i][1] - arr[j][0] * arr[i][1] - arr[k][0] * arr[j][1] - arr[i][0] * arr[k][1]))
 
-print(max_area)
+if max_area == -sys.maxsize:
+    print(0)
+else:
+    print(max_area)
