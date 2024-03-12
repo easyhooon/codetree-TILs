@@ -13,9 +13,8 @@ cnt = 0
 for i in range(start ,end + 1):
     for j in range(n - 1):
         for k in range(1, n):
-            if j + k >= n:
-                continue
-            if abs(i - arr[j]) == abs(i - arr[j + k]):
-                cnt += 1
+            if j + k < n:
+                if abs(i - arr[j]) == abs(i - arr[j + k]):
+                    cnt += 1
 
 print(cnt)
