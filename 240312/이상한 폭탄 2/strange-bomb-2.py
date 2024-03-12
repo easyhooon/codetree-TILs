@@ -10,8 +10,8 @@ arr = [
 ]
 
 max_bomb_num = -sys.maxsize
-for i in range(n - k):
-    for j in range(i + 1, i + k + 1):
+for i in range(n - 1):
+    for j in range(i + 1, min(n, i + k + 1)):
         if arr[i] == arr[j]:
             max_bomb_num = max(max_bomb_num, arr[i])
 
