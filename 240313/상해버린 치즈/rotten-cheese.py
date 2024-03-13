@@ -25,7 +25,7 @@ for i in range(1, m + 1):
         person = p
         if time[person] == 0:
             time[person] = t
-        elif tme[person] > t:
+        elif time[person] > t:
             time[person] = t 
 
     possible = True
