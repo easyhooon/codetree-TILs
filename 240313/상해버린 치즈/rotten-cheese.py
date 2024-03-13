@@ -6,8 +6,8 @@ n, m, d, s = map(int, si().split())
 
 cheese_eat_info = []
 for i in range(d):
-    p, m, t = map(int, si().split())
-    cheese_eat_info.append((p, m ,t))
+    p, x, t = map(int, si().split())
+    cheese_eat_info.append((p, x ,t))
 
 sick_info = []
 for j in range(s):
@@ -18,9 +18,10 @@ answer = 0
 
 for i in range(1, m + 1):
     time = [0] * (n + 1)
-    for p, m, t in cheese_eat_info:
-        if m != i:
+    for p, x, t in cheese_eat_info:
+        if x != i:
             continue
+
         person = p
         if time[person] == 0:
             time[person] = t
@@ -36,13 +37,12 @@ for i in range(1, m + 1):
         if time[person] >= t:
             possible = False 
 
-    pill = 0
-
+    cnt = 0
     if possible:
         for j in range(1, n + 1):
             if time[j] != 0:
-                pill += 1
+                cnt += 1
     
-    answer = max(answer, pill)
+    answer = max(answer, cnt)
 
 print(answer)
