@@ -40,4 +40,13 @@ for i in range(11):
             if success:
                 answer = 1
 
+            success = True
+            for x, y in arr:
+                if y == i or y == j or y == k:
+                    continue
+                
+                success = False
+            if success:
+                answer = 1
+
 print(answer)
