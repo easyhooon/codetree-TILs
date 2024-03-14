@@ -8,6 +8,7 @@ arr = [
 ]
 
 # print(arr)
+answer = []
 
 cnt = 0
 for i in range(3):
@@ -17,6 +18,8 @@ for i in range(3):
     temp_arr = set(temp_arr)
     if len(temp_arr) == 2:
         cnt += 1
+        temp_arr = list(temp_arr)
+        answer.append((temp_arr[0], temp_arr[1]))
 
 for i in range(3):
     temp_arr = []
@@ -25,6 +28,8 @@ for i in range(3):
     temp_arr = set(temp_arr)
     if len(temp_arr) == 2:
         cnt += 1
+        temp_arr = list(temp_arr)
+        answer.append((temp_arr[0], temp_arr[1]))
 
 temp_arr = []
 temp_arr.append(arr[0][0])
@@ -33,6 +38,8 @@ temp_arr.append(arr[2][2])
 temp_arr = set(temp_arr)
 if len(temp_arr) == 2:
     cnt += 1
+    temp_arr = list(temp_arr)
+    answer.append((temp_arr[0], temp_arr[1]))
 
 temp_arr = []
 temp_arr.append(arr[0][2])
@@ -41,5 +48,8 @@ temp_arr.append(arr[2][0])
 temp_arr = set(temp_arr)
 if len(temp_arr) == 2:
     cnt += 1
+    temp_arr = list(temp_arr)
+    answer.append((temp_arr[0], temp_arr[1]))
 
-print(cnt)
+answer = set(answer)
+print(len(answer))
