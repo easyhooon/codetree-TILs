@@ -5,8 +5,8 @@ si = sys.stdin.readline
 n, k = map(int, si().split())
 
 arr = [
-    list(int(si()) 
-    for _ in range(n))
+    int(si())
+    for _ in range(n)
 ]
 
 cnt = 0
