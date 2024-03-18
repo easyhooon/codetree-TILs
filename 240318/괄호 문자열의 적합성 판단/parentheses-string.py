@@ -12,7 +12,7 @@ for i in range(len(command)):
     else:
         if not stack:
             print("No")
-            sus.exit(0)
+            sys.exit(0)
         stack.pop()
 
 if stack:
