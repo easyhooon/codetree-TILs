@@ -14,5 +14,5 @@ cnt = 0
 while q:
     q.append(q.popleft())
     cnt += 1
-    if cnt % 4 == 0:
+    if cnt % k == 0:
         print(q.pop(), end=" ")
