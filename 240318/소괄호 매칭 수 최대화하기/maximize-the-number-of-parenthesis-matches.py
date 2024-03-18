@@ -30,6 +30,8 @@ for _ in range(n):
             closed_num += 1
 
             answer += open_num
+    
+    brackets.append((open_num, closed_num))
 
 brackets.sort(key=cmp_to_key(compare))
 
