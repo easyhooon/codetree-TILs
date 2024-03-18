@@ -10,7 +10,8 @@ for i in range(len(command)):
         stack.append(command[i])
 
     else:
-        stack.pop()
+        if stack:
+            stack.pop()
 
 if stack:
     print('No')
