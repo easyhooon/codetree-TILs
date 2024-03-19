@@ -5,14 +5,10 @@ si = sys.stdin.readline
 
 n, g = map(int, si().split())
 
-arr = [
-    list(map(int, si().split()))
-    for _ in range(g)
-]
-
 invited = [False] * n
 # 각 그룹마다 초대장을 받지 못한 사람들을 관리
 groups = [set() for _ in range(g)]
+# 각 사람이 어떤 그룹에 속하는지 관리
 people_groups = [[] for _ in range(n)]
 
 q = deque()
