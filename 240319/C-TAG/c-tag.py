@@ -21,10 +21,10 @@ def test_location(x, y, z):
     s.clear()
     
     for i in range(n):
-        s.add(a[i][x:x + 1] + a[i][y:y + 1] + a[i][z:z + 1])
+        s.add(a[i][x] + a[i][y] + a[i][z])
 
     for i in range(n):
-        if (b[i][x:x + 1] + b[i][y:y + 1] + b[i][z:z + 1]) in s:
+        if (b[i][x] + b[i][y] + b[i][z]) in s:
             return False 
 
     return True 
