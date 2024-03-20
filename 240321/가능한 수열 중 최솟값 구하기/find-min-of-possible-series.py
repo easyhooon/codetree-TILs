@@ -12,18 +12,23 @@ def is_possible_series():
     for idx in range(len(series)):
         length = 1
         while True:
-            start1, end1 = idx, idx + length - 1
-            start2, end2 = end1 + 1, (end1 + 1) + length - 1
+            # start1, end1 = idx, idx + length - 1
+            # start2, end2 = end1 + 1, (end1 + 1) + length - 1
 
-            if end2 >= len(series):
+            # if end2 >= len(series):
+            #     break
+            start1, end1 = len(series) - length, len(series) - 1
+            start2, end2 = start1 - length, start1 - 1
+
+            if start2 < 0:
                 break
-
-            if series[start1:end1 + 1] == series[start2:end2 + 1]:
-                return False
             
+            if series[start1: end1 + 1] == series[start2: end2 + 1]:
+                return False
+
             length += 1
-    
-    return True
+
+        return True
 
 def find_min_series(cnt):
     if cnt == n:
