@@ -32,17 +32,19 @@ def is_possible_series():
 
 def find_min_series(cnt):
     if cnt == n:
-        if not is_possible_series():
-            return
+        # if not is_possible_series():
+        #     return
         
         # 가장 먼저 나오는 조합을 출력하고 프로그램 종료 
         for elem in series:
             print(elem, end = "")
         sys.exit(0)
+        
 
     for number in numbers:
         series.append(number)
-        find_min_series(cnt + 1)
+        if is_possible_series():
+            find_min_series(cnt + 1)
         series.pop()
 
 find_min_series(0)
