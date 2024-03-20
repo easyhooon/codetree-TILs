@@ -34,7 +34,7 @@ def choose(curr_num):
     if curr_num == n:
         if check():
             answer = max(answer, len(choose_num))
-            return
+        return
     
     choose_num.append(curr_num)
     choose(curr_num + 1)
