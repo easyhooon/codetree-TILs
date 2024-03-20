@@ -25,7 +25,7 @@ def find_max_sum(curr_idx, curr_weight, curr_val):
 def find_max(sx, sy):
     global arr, max_val
 
-    arr = weight[sx][sy: sy + m]
+    arr = weight[sx][sy : sy + m]
 
     max_val = 0
     find_max_sum(0, 0, 0)
@@ -35,13 +35,13 @@ def intersect(a, b, c, d):
     return not (b < c or d < a)
 
 def possible(sx1, sy1, sx2, sy2):
-    if sy1 + m - 1 >= m or sy2 + m - 1 >= n:
+    if sy1 + m - 1 >= n or sy2 + m - 1 >= n:
         return False 
 
     if sx1 != sx2:
         return True 
 
-    if intersect(sy1, sy1 + m -1, sy2, sy2 + m -1):
+    if intersect(sy1, sy1 + m - 1, sy2, sy2 + m - 1):
         return False
 
     return True
