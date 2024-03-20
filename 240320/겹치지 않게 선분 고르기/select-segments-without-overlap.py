@@ -17,7 +17,7 @@ def check():
     if choose_num:
         end_point = arr[choose_num[0]][1]
         for i in range(1, len(choose_num)):
-            if end_point >= arr[choose_num[i]][0]:
+            if end_point > arr[choose_num[i]][0]:
                 return False
             else:
                 end_point = arr[choose_num[i]][1]
