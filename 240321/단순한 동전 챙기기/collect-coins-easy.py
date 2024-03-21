@@ -55,4 +55,7 @@ def choose(curr_num, cnt):
 
 choose(1, 0)
 
-print(answer)
+if answer == sys.maxsize:
+    print('-1')
+else: 
+    print(answer)
