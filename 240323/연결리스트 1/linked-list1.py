@@ -60,10 +60,11 @@ for _ in range(n):
         insertNext(cur, target)
 
     if option == 3:
-        if cur.pev is not None:
+        if cur.prev is not None:
             cur = cur.prev
 
     if option == 4:
         if cur.next is not None:
             cur = cur.next
+
     printNode(cur)
