@@ -37,8 +37,9 @@ def choose(curr_num, cnt):
             for elem in start:
                 bfs(elem[0] - 1, elem[1] - 1)
                 # 3. 최댓값을 갱신
-                answer = max(answer, count_block())
-                initialize(combination)
+                cnt = count_block()
+                answer = max(answer, cnt)
+                initialize()
         return
 
     combination.append(stone[curr_num])
@@ -75,7 +76,7 @@ def count_block():
     return cnt
 
 
-def initialize(combination):
+def initialize():
     for elem in combination:
         grid[elem[0]][elem[1]] = 1
 
