@@ -93,8 +93,6 @@ def simulate():
     elapsed_time += 1
     last_melt_cnt = len(glaciers_to_melt)
 
-    q = glaciers_to_melt.copy()
-
     # 녹아야 할 빙하들을 녹여줍니다.
     melt()
 
