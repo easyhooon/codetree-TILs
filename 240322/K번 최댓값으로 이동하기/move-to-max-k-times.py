@@ -9,6 +9,11 @@ def in_range(x, y):
 def can_go(nx, ny):
     return in_range(nx, ny) and not visited[nx][ny] and grid[nx][ny] < grid[start_x][start_y]
 
+def initialize():
+    for i in range(1, n + 1):
+        for j in range(1, n + 1):
+            visited[i][j] = False
+
 def bfs(x, y):
     global start_x, start_y, max_val, best_x, best_y
     q = deque()
@@ -65,10 +70,7 @@ cnt = 0
 
 while cnt < k:
     max_val = -sys.maxsize
-    for i in range(1, n + 1):
-        for j in range(1, n + 1):
-            visited[i][j] = False
-
+    initialize()
     bfs(start_x, start_y)
     start_x = best_x
     start_y = best_y
