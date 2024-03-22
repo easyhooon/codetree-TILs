@@ -7,7 +7,7 @@ def preprocess():
     dp[2] = 1
     dp[3] = 1
 
-    for i in range(5, 1001):
+    for i in range(4, 1001):
         dp[i] = dp[i - 2] + dp[i - 3]
         dp[i] %= 10007
 
