@@ -42,6 +42,12 @@ def initialize():
 
 # 아직 방문해보지 못한 빙하에 둘러쌓여 있지 않은 물 영역을 더 탐색해주는 BFS입니다.
 def bfs():
+    initialize()
+
+    # 처음에는 (0, 0) 에서 시작하여 초기 빙하에 둘러쌓여 있지 않은 물들을 찾을 수 있도록 합니다.
+    q.append((0, 0))
+    visited[0][0] = True
+
     while q:
         x, y = q.popleft()
 
@@ -93,11 +99,6 @@ def simulate():
     melt()
 
     return True
-
-
-# 처음에는 (0, 0) 에서 시작하여 초기 빙하에 둘러쌓여 있지 않은 물들을 찾을 수 있도록 합니다.
-q.append((0, 0))
-visited[0][0] = True
 
 while True:
     is_glacier_exist = simulate()
