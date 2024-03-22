@@ -3,6 +3,21 @@ from collections import deque
 
 si = sys.stdin.readline
 
+n, k, m = map(int, si().split())
+grid = [
+    list(map(int, si().split()))
+    for _ in range(n)
+]
+visited  = [
+    [False for _ in range(n)]
+    for _ in range(n)
+]
+start = []
+stone = []
+combination = []
+dx, dy = [-1, 0, 1, 0], [0, -1, 0, 1]
+answer = -sys.maxsize
+
 # 백트래킹으로 m 개의 돌을 선택해서 치우고 k번 만큼 BFS 를 수행한 다음에
 # 둘 중 최솟값을 산출하여 최솟값의 최댓값을 갱신
 
@@ -23,7 +38,7 @@ def choose(curr_num, cnt):
                 bfs(elem[0] - 1, elem[1] - 1)
                 # 3. 최댓값을 갱신
                 answer = max(answer, count_block())
-                initialize()
+                initialize(combination)
         return
 
     combination.append(stone[curr_num])
@@ -53,7 +68,6 @@ def bfs(start_x, start_y):
 
 def count_block():
     cnt = 0
-    global n
     for i in range(n):
         for j in range(n):
             if visited[i][j]:
@@ -61,28 +75,13 @@ def count_block():
     return cnt
 
 
-def initialize():
+def initialize(combination):
     for elem in combination:
         grid[elem[0]][elem[1]] = 1
 
     for i in range(n):
         for j in range(n):
             visited[i][j] = False
-
-n, k, m = map(int, si().split())
-grid = [
-    list(map(int, si().split()))
-    for _ in range(n)
-]
-visited  = [
-    [False for _ in range(n)]
-    for _ in range(n)
-]
-start = []
-stone = []
-combination = []
-dx, dy = [-1, 0, 1, 0], [0, -1, 0, 1]
-answer = -sys.maxsize
 
 num = 0
 for i in range(k):
