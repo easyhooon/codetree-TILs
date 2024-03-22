@@ -1,7 +1,10 @@
 import sys
 from collections import deque
+from pprint import pprint
 
-si = sys.stdin.readline
+def si():
+    return sys.stdin.readline().rstrip()
+
 
 # 백트래킹으로 m 개의 돌을 선택해서 치우고 k번 만큼 BFS 를 수행한 다음에 둘 주 최솟값을 산출하여 최솟값의 최댓값을 갱신
 
@@ -22,6 +25,7 @@ def choose(curr_num, cnt):
             for elem in start:
                 bfs(elem[0]-1, elem[1]-1)
                 # 3. 최댓값을 갱신
+                # pprint(check)
                 cnt = count_block()
                 max_cnt = max(max_cnt, cnt)
                 initialize(combination)
@@ -37,15 +41,15 @@ def bfs(start_x, start_y):
     q = deque()
 
     q.append((start_x, start_y))
-    visited[start_x][start_y] = True
+    check[start_x][start_y] = True
 
     while q:
         x, y = q.popleft()
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
-            if in_range(nx, ny) and grid[nx][ny] == 0 and not visited[nx][ny]:
-                visited[nx][ny] = True
+            if in_range(nx, ny) and grid[nx][ny] == 0 and not check[nx][ny]:
+                check[nx][ny] = True
                 q.append((nx, ny))
 
 def in_range(x, y):
@@ -56,28 +60,25 @@ def count_block():
     global n
     for i in range(n):
         for j in range(n):
-            if visited[i][j]:
+            if check[i][j]:
                 cnt += 1
     return cnt
 
 
 def initialize(combination):
+    # 돌 원상 볷구
     for elem in combination:
         grid[elem[0]][elem[1]] = 1
 
+    # 방문, 거리 배열 초기화
     for i in range(n):
         for j in range(n):
-            visited[i][j] = False
+            check[i][j] = False
 
+# 입력
 n, k, m = map(int, si().split())
-grid = [
-    list(map(int, si().split())) 
-    for _ in range(n)
-]
-visited = [
-    [False for _ in range(n)]
-    for _ in range(n)
-]
+grid = [list(map(int, si().split())) for _ in range(n)]
+check = [[False for _ in range(n)] for _ in range(n)]
 start = []
 stone = []
 combination = []
