@@ -17,10 +17,10 @@ def choose(curr_num, cnt):
         if cnt == m:
             # 2. 선택한 칸의 돌 제거 후, k번 만큼 bfs를 수행
             for elem in combination:
-                grid[elem[0]- 1][elem[1]- 1] = 0
+                grid[elem[0]][elem[1]] = 0
 
             for elem in start:
-                bfs(elem[0] - 1, elem[1] - 1)
+                bfs(elem[0], elem[1])
                 # 3. 최댓값을 갱신
                 answer = max(answer, count_block())
                 initialize()
@@ -87,7 +87,7 @@ answer = -sys.maxsize
 num = 0
 for i in range(k):
     start_x, start_y = map(int, si().split())
-    start.append((start_x, start_y))
+    start.append((start_x - 1, start_y - 1))
 
 for i in range(n):
     for j in range(n):
