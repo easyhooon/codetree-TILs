@@ -4,20 +4,6 @@ from collections import deque
 si = sys.stdin.readline
 
 # 백트래킹으로 m 개의 돌을 선택해서 치우고 k번 만큼 BFS 를 수행한 다음에 둘 주 최솟값을 산출하여 최솟값의 최댓값을 갱신
-n, k, m = map(int, si().split())
-grid = [
-    list(map(int, si().split()))
-    for _ in range(n)
-]
-visited = [
-    [False for _ in range(n)]
-    for _ in range(n)
-]
-start = []
-stone = []
-combination = []
-dx, dy = [-1, 0, 1, 0], [0, -1, 0, 1]
-max_cnt = -sys.maxsize
 
 # 1. 백트래킹을 이용하여 m개의 돌을 선택
 # -> k개 중에 M개 고르기
@@ -34,20 +20,18 @@ def choose(curr_num, cnt):
                 grid[elem[0]][elem[1]] = 0
 
             for elem in start:
-                bfs(elem[0] - 1, elem[1] - 1)
+                bfs(elem[0]-1, elem[1]-1)
                 # 3. 최댓값을 갱신
-                max_cnt = max(max_cnt, count_block())
-                initialize()
+                cnt = count_block()
+                max_cnt = max(max_cnt, cnt)
+                initialize(combination)
         return
-
     combination.append(stone[curr_num])
     choose(curr_num + 1, cnt + 1)
     combination.pop()
 
     choose(curr_num + 1, cnt)
 
-def in_range(x, y):
-    return 0 <= x < n and 0 <= y < n
 
 def bfs(start_x, start_y):
     q = deque()
@@ -64,8 +48,12 @@ def bfs(start_x, start_y):
                 visited[nx][ny] = True
                 q.append((nx, ny))
 
+def in_range(x, y):
+    return 0 <= x < n and 0 <= y < n
+
 def count_block():
     cnt = 0
+    global n
     for i in range(n):
         for j in range(n):
             if visited[i][j]:
@@ -73,13 +61,28 @@ def count_block():
     return cnt
 
 
-def initialize():
+def initialize(combination):
     for elem in combination:
         grid[elem[0]][elem[1]] = 1
 
     for i in range(n):
         for j in range(n):
             visited[i][j] = False
+
+n, k, m = map(int, si().split())
+grid = [
+    list(map(int, si().split())) 
+    for _ in range(n)
+]
+visited = [
+    [False for _ in range(n)]
+    for _ in range(n)
+]
+start = []
+stone = []
+combination = []
+dx, dy = [-1, 1, 0, 0], [0, 0, -1, 1]
+max_cnt = -sys.maxsize
 
 num = 0
 for i in range(k):
