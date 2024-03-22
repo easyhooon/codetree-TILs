@@ -3,12 +3,13 @@ from collections import deque
 
 si = sys.stdin.readline
 
+# 백트래킹으로 m 개의 돌을 선택해서 치우고 k번 만큼 BFS 를 수행한 다음에 둘 주 최솟값을 산출하여 최솟값의 최댓값을 갱신
 n, k, m = map(int, si().split())
 grid = [
     list(map(int, si().split()))
     for _ in range(n)
 ]
-visited  = [
+visited = [
     [False for _ in range(n)]
     for _ in range(n)
 ]
@@ -16,20 +17,18 @@ start = []
 stone = []
 combination = []
 dx, dy = [-1, 0, 1, 0], [0, -1, 0, 1]
-answer = -sys.maxsize
-
-# 백트래킹으로 m 개의 돌을 선택해서 치우고 k번 만큼 BFS 를 수행한 다음에
-# 둘 중 최솟값을 산출하여 최솟값의 최댓값을 갱신
+max_cnt = -sys.maxsize
 
 # 1. 백트래킹을 이용하여 m개의 돌을 선택
 # -> k개 중에 M개 고르기
 def choose(curr_num, cnt):
-    global answer
+    global max_cnt
     if cnt > m:
         return
 
     if curr_num == num:
         if cnt == m:
+            # print(combination)
             # 2. 선택한 칸의 돌 제거 후, k번 만큼 bfs를 수행
             for elem in combination:
                 grid[elem[0]][elem[1]] = 0
@@ -37,8 +36,7 @@ def choose(curr_num, cnt):
             for elem in start:
                 bfs(elem[0] - 1, elem[1] - 1)
                 # 3. 최댓값을 갱신
-                cnt = count_block()
-                answer = max(answer, cnt)
+                max_cnt = max(max_cnt, count_block())
                 initialize()
         return
 
@@ -65,7 +63,6 @@ def bfs(start_x, start_y):
             if in_range(nx, ny) and grid[nx][ny] == 0 and not visited[nx][ny]:
                 visited[nx][ny] = True
                 q.append((nx, ny))
-
 
 def count_block():
     cnt = 0
@@ -96,5 +93,4 @@ for i in range(n):
             num += 1
 
 choose(0, 0)
-
-print(answer)
+print(max_cnt)
