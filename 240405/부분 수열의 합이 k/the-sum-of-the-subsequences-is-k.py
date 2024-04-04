@@ -6,18 +6,19 @@ import sys
 si = sys.stdin.readline
 
 n, k = map(int, si().split())
-a = list(map(int, si().split()))
+arr = list(map(int, si().split()))
 
 ps = [0 for _ in range(n)]
 
 for i in range(n):
-    ps[i] = a[i]
+    ps[i] = arr[i]
     if i > 0:
         ps[i] += ps[i - 1]
 
 cnt = 0
+# s 와 e 가 같을  때 를 추가해야함 
 for s in range(0, n):
-    for e in range(s + 1, n):
+    for e in range(s, n):
         if s > 0:
             if ps[e] - ps[s - 1] == k:
                 cnt += 1
