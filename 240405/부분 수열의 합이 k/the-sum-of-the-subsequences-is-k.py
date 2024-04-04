@@ -3,7 +3,7 @@ import sys
 # 모든 연속된 구간의 합 중에서 -> k개 라는 제한이 없음
 # n 은 1000이하 2중 포문 가능
 
-si = sys.stdin.readline()
+si = sys.stdin.readline
 
 n, k = map(int, si().split())
 a = list(map(int, si().split()))
